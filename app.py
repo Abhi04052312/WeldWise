@@ -10,16 +10,16 @@ Render start: gunicorn app:app
 
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-import pickle, numpy as np, json, os, anthropic
+import joblib, numpy as np, json, os, anthropic
 
 app = Flask(__name__)
 CORS(app)
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
+import joblib
 def load_pkl(name):
-    with open(os.path.join(BASE_DIR, name), 'rb') as f:
-        return pickle.load(f)
+    return joblib.load(os.path.join(BASE_DIR, name))
 
 print("Loading models...")
 reg_model         = load_pkl('weldwise_reg_model.pkl')
