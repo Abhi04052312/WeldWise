@@ -15,7 +15,7 @@ from groq import Groq
 from scipy.optimize import differential_evolution
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, origins="*", supports_credentials=False)
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
