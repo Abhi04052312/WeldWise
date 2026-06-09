@@ -16,7 +16,7 @@ from groq import Groq
 app = Flask(__name__)
 CORS(app, resources={r"/*": {
     "origins": [
-        "https://weldwiseanalysis.netlify.app",
+        "https://weldwiseanalisis.netlify.app",
         "http://localhost:5000",
         "http://127.0.0.1:5000",
         "https://*.netlify.app"
