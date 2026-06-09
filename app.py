@@ -14,16 +14,14 @@ import joblib, numpy as np, json, os
 from groq import Groq
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {
-    "origins": [
-        "https://weldwiseanalisis.netlify.app",
-        "http://localhost:5000",
-        "http://127.0.0.1:5000",
-        "https://*.netlify.app"
-    ],
-    "methods": ["GET", "POST", "OPTIONS"],
-    "allow_headers": ["Content-Type"]
-}})
+CORS(app)
+
+@app.after_request
+def add_cors(response):
+    response.headers['Access-Control-Allow-Origin'] = '*'
+    response.headers['Access-Control-Allow-Headers'] = 'Content-Type'
+    response.headers['Access-Control-Allow-Methods'] = 'GET, POST, OPTIONS'
+    return response
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
