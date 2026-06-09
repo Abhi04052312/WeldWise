@@ -159,66 +159,6 @@ def predict():
         return jsonify({'error': str(e)}), 500
 
 
-@app.route('/optimize', methods=['POST'])
-def optimize():
-    try:
-        d             = request.json
-        material      = d['material']
-        locked_params = d.get('locked_params', {})
-        current_p     = d.get('current_params', {})
-
-        r   = MATERIAL_RANGES[material]
-        rng = np.random.default_rng(seed=42)
-        N   = 800
-
-        free_params  = [p for p in PARAM_ORDER if p not in locked_params]
-        fixed_params = {p: float(locked_params[p]) for p in locked_params if p in PARAM_ORDER}
-
-        samples = {p: rng.uniform(r[p][0], r[p][1], N) for p in free_params}
-
-        best_score, best_params = -1, None
-        for i in range(N):
-            candidate = dict(fixed_params)
-            for p in free_params:
-                candidate[p] = float(samples[p][i])
-            s = score_params(material, candidate)
-            if s > best_score:
-                best_score, best_params = s, candidate
-
-        opt_params = {p: round(best_params[p], 2) for p in PARAM_ORDER}
-        opt_score  = score_params(material, opt_params)
-
-        X_opt, hi_opt = build_feature_vector(material, opt_params)
-        reg_pred   = reg_model.predict(X_opt)[0]
-        clf_pred   = clf_model.predict(X_opt)[0]
-        condition  = condition_encoder.inverse_transform([clf_pred])[0]
-        confidence = round(float(max(clf_model.predict_proba(X_opt)[0])) * 100, 1)
-
-        opt_prediction = {
-            'yield_strength': round(float(reg_pred[0]), 1),
-            'uts':            round(float(reg_pred[1]), 1),
-            'elongation':     round(float(reg_pred[2]), 2),
-            'condition':      condition,
-            'confidence':     confidence,
-            'heat_input':     round(hi_opt, 4),
-        }
-
-        orig_score = score_params(material, {
-            p: float(current_p.get(p, opt_params[p])) for p in PARAM_ORDER
-        }) if current_p else None
-
-        return jsonify({
-            'optimized_params':     opt_params,
-            'optimized_score':      opt_score,
-            'optimized_prediction': opt_prediction,
-            'original_score':       orig_score,
-            'improvement':          round(opt_score - orig_score, 1) if orig_score is not None else None,
-            'locked_params':        list(fixed_params.keys()),
-            'free_params':          free_params,
-        })
-
-    except Exception as e:
-        return jsonify({'error': str(e)}), 500
 
 
 @app.route('/analyze', methods=['POST'])
