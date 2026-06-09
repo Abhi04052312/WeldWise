@@ -15,7 +15,16 @@ from groq import Groq
 from scipy.optimize import differential_evolution
 
 app = Flask(__name__)
-CORS(app, origins="*", supports_credentials=False)
+CORS(app, resources={r"/*": {
+    "origins": [
+        "https://weldwiseanalysis.netlify.app",
+        "http://localhost:5000",
+        "http://127.0.0.1:5000",
+        "https://*.netlify.app"
+    ],
+    "methods": ["GET", "POST", "OPTIONS"],
+    "allow_headers": ["Content-Type"]
+}})
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
