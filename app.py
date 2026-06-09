@@ -164,74 +164,38 @@ def predict():
 
 @app.route('/optimize', methods=['POST'])
 def optimize():
-    """
-    Runs scipy differential_evolution against the XGBoost model to find
-    the mathematically optimal parameter set.
-
-    Accepts:
-      - material: string
-      - locked_params: dict of {param_name: value} for parameters to keep fixed
-        e.g. {"voltage": 14, "preheat_temp": 80}
-      - current_params: dict of current input values (used as fallback for locked)
-
-    Returns:
-      - optimized_params: the best parameter set found
-      - optimized_score: quality score 0–100
-      - optimized_prediction: full prediction on optimized params
-      - improvement: score delta vs original
-      - original_score: score of the original inputs
-    """
     try:
         d             = request.json
         material      = d['material']
-        locked_params = d.get('locked_params', {})   # {param: value}
-        current_p     = d.get('current_params', {})  # original inputs
+        locked_params = d.get('locked_params', {})
+        current_p     = d.get('current_params', {})
 
-        r = MATERIAL_RANGES[material]
+        r   = MATERIAL_RANGES[material]
+        rng = np.random.default_rng(seed=42)
+        N   = 800
 
-        # Build bounds — locked params have zero-width range (fixed point)
-        free_params  = []  # params the optimizer can change
-        fixed_params = {}  # locked params with their fixed values
+        free_params  = [p for p in PARAM_ORDER if p not in locked_params]
+        fixed_params = {p: float(locked_params[p]) for p in locked_params if p in PARAM_ORDER}
 
-        for p in PARAM_ORDER:
-            if p in locked_params:
-                fixed_params[p] = float(locked_params[p])
-            else:
-                free_params.append(p)
+        samples = {p: rng.uniform(r[p][0], r[p][1], N) for p in free_params}
 
-        bounds = [r[p] for p in free_params]
+        best_score, best_params = -1, None
+        for i in range(N):
+            candidate = dict(fixed_params)
+            for p in free_params:
+                candidate[p] = float(samples[p][i])
+            s = score_params(material, candidate)
+            if s > best_score:
+                best_score, best_params = s, candidate
 
-        def objective(x):
-            # Reconstruct full param dict from free vars + fixed vars
-            params = dict(fixed_params)
-            for i, p in enumerate(free_params):
-                params[p] = x[i]
-            # Negate because differential_evolution minimises
-            return -score_params(material, params)
+        opt_params = {p: round(best_params[p], 2) for p in PARAM_ORDER}
+        opt_score  = score_params(material, opt_params)
 
-        result = differential_evolution(
-            objective,
-            bounds,
-            seed=42,
-            maxiter=200,
-            popsize=12,
-            tol=0.001,
-            polish=True,
-        )
-
-        # Build optimized full params dict
-        opt_params = dict(fixed_params)
-        for i, p in enumerate(free_params):
-            opt_params[p] = round(float(result.x[i]), 2)
-
-        opt_score = score_params(material, opt_params)
-
-        # Get full prediction on optimized params
         X_opt, hi_opt = build_feature_vector(material, opt_params)
-        reg_pred      = reg_model.predict(X_opt)[0]
-        clf_pred      = clf_model.predict(X_opt)[0]
-        condition     = condition_encoder.inverse_transform([clf_pred])[0]
-        confidence    = round(float(max(clf_model.predict_proba(X_opt)[0])) * 100, 1)
+        reg_pred   = reg_model.predict(X_opt)[0]
+        clf_pred   = clf_model.predict(X_opt)[0]
+        condition  = condition_encoder.inverse_transform([clf_pred])[0]
+        confidence = round(float(max(clf_model.predict_proba(X_opt)[0])) * 100, 1)
 
         opt_prediction = {
             'yield_strength': round(float(reg_pred[0]), 1),
@@ -242,13 +206,9 @@ def optimize():
             'heat_input':     round(hi_opt, 4),
         }
 
-        # Original score for comparison
-        if current_p:
-            orig_score = score_params(material, {
-                p: float(current_p.get(p, opt_params[p])) for p in PARAM_ORDER
-            })
-        else:
-            orig_score = None
+        orig_score = score_params(material, {
+            p: float(current_p.get(p, opt_params[p])) for p in PARAM_ORDER
+        }) if current_p else None
 
         return jsonify({
             'optimized_params':     opt_params,
