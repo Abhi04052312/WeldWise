@@ -12,7 +12,6 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 import joblib, numpy as np, json, os
 from groq import Groq
-from scipy.optimize import differential_evolution
 
 app = Flask(__name__)
 CORS(app, resources={r"/*": {
