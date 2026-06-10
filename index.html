@@ -66,50 +66,28 @@
     opacity: 0.6;
   }
 
-  .shell {
-    position: relative;
-    z-index: 1;
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 0 24px 80px;
-  }
+  .shell { position: relative; z-index: 1; max-width: 960px; margin: 0 auto; padding: 0 24px 80px; }
 
-  header {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 24px 0 40px;
-    border-bottom: 1px solid var(--border);
-    margin-bottom: 40px;
-    gap: 24px;
-    position: relative;
-  }
+  header { display: flex; flex-direction: column; align-items: flex-start; padding: 24px 0 40px; border-bottom: 1px solid var(--border); margin-bottom: 40px; gap: 24px; position: relative; }
 
   .brand { display: flex; flex-direction: row; align-items: center; gap: 14px; position: relative; z-index: 10; }
   .brand-title { font-family: var(--font-display); font-size: 42px; font-weight: 700; letter-spacing: -0.02em; line-height: 1; color: var(--text); }
   .brand-sub { font-size: 12px; color: var(--muted); margin-top: 4px; }
-
   .backend-dot { position: absolute; top: 22px; right: 0; display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--red); box-shadow: 0 0 0 2px rgba(255,255,255,0.08); }
   .backend-dot.online  { background: var(--green); }
   .backend-dot.offline { background: var(--red); }
-
   .header-meta { text-align: left; font-family: var(--font-mono); font-size: 11px; color: var(--faint); line-height: 1.8; }
   .header-meta span { color: var(--muted); }
-
   .main-grid { display: grid; grid-template-columns: 1fr; gap: 0px; align-items: start; }
-
   .panel { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; }
   .panel-header { padding: 16px 20px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
   .panel-title { font-family: var(--font-display); font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
   .panel-body { padding: 20px; }
-
   .field { margin-bottom: 14px; }
   .field:last-child { margin-bottom: 0; }
   .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-
   label { display: flex; align-items: baseline; justify-content: space-between; font-size: 11px; font-weight: 500; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 6px; }
   label .range-hint { font-family: var(--font-mono); font-size: 10px; color: var(--faint); text-transform: none; letter-spacing: 0; }
-
   .input-wrap { display: flex; align-items: center; background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius); transition: border-color 0.15s; overflow: hidden; }
   .input-wrap:focus-within { border-color: var(--border2); }
   .input-wrap.warn { border-color: var(--red-border); background: var(--red-bg); }
@@ -119,8 +97,6 @@
   .input-wrap input::-webkit-inner-spin-button, .input-wrap input::-webkit-outer-spin-button { opacity: 0.3; }
   .input-unit { padding: 0 12px 0 6px; font-family: var(--font-mono); font-size: 11px; color: var(--faint); white-space: nowrap; }
   .warn-msg { font-size: 11px; color: var(--red); margin-top: 4px; display: none; font-family: var(--font-mono); }
-
-  /* LOCK TOGGLE */
   .lock-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 5px; }
   .lock-label-wrap { display: flex; align-items: baseline; gap: 6px; font-size: 11px; font-weight: 500; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; }
   .lock-toggle { display: flex; align-items: center; gap: 5px; cursor: pointer; user-select: none; }
@@ -129,65 +105,31 @@
   .lock-toggle input:checked + .lock-icon { border-color: var(--blue-border); background: var(--blue-bg); color: var(--blue); }
   .lock-text { font-family: var(--font-mono); font-size: 10px; color: var(--faint); text-transform: none; letter-spacing: 0; }
   .lock-toggle input:checked ~ .lock-text { color: var(--blue); }
-
   select { width: 100%; background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius); padding: 9px 12px; font-family: var(--font-body); font-size: 14px; color: var(--text); outline: none; cursor: pointer; transition: border-color 0.15s; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%237a8196' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; }
   select:focus { border-color: var(--border2); }
   select option { background: #1b1f26; }
-
   .derived-box { display: flex; align-items: center; justify-content: space-between; background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius); padding: 12px 16px; margin-top: 16px; }
   .derived-label { font-size: 12px; color: var(--muted); }
   .derived-formula { font-family: var(--font-mono); font-size: 10px; color: var(--faint); margin-top: 2px; }
   .derived-value { font-family: var(--font-mono); font-size: 22px; font-weight: 500; color: var(--amber); }
   .derived-unit { font-size: 12px; color: var(--muted); margin-left: 4px; }
-
   .warn-banner { display: none; background: var(--red-bg); border: 1px solid var(--red-border); border-radius: var(--radius); padding: 12px 16px; margin-top: 14px; }
   .warn-banner-title { font-size: 12px; font-weight: 500; color: var(--red); margin-bottom: 2px; letter-spacing: 0.04em; }
   .warn-banner-body { font-family: var(--font-mono); font-size: 11px; color: var(--red); opacity: 0.8; }
-
   .btn-primary { width: 100%; margin-top: 18px; padding: 13px; background: var(--amber); color: #0d0f12; font-family: var(--font-display); font-size: 14px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; border: none; border-radius: var(--radius); cursor: pointer; transition: opacity 0.15s, transform 0.1s; }
   .btn-primary:hover { opacity: 0.9; }
   .btn-primary:active { transform: scale(0.99); }
   .btn-primary:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
-
-  .btn-optimize { width: 100%; margin-top: 10px; padding: 13px; background: #202835a5; color: var(--purple); font-family: var(--font-display); font-size: 14px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; border: 2px solid var(--purple-border); border-radius: var(--radius); cursor: pointer; transition: background 0.15s, opacity 0.15s; }
-  .btn-optimize:hover { background: var(--purple-bg); }
-  .btn-optimize:disabled { opacity: 0.4; cursor: not-allowed; }
-
   .btn-secondary { padding: 9px 18px; background: transparent; color: var(--text); font-family: var(--font-body); font-size: 13px; font-weight: 500; border: 1px solid var(--border2); border-radius: var(--radius); cursor: pointer; transition: background 0.15s, border-color 0.15s; white-space: nowrap; }
   .btn-secondary:hover { background: var(--surface2); border-color: var(--faint); }
   .btn-secondary:disabled { opacity: 0.4; cursor: not-allowed; }
-
   .btn-outline-green { padding: 9px 18px; background: transparent; color: var(--green); font-family: var(--font-body); font-size: 13px; font-weight: 500; border: 1px solid var(--green-border); border-radius: var(--radius); cursor: pointer; transition: background 0.15s; white-space: nowrap; }
   .btn-outline-green:hover { background: var(--green-bg); }
   .btn-outline-green:disabled { opacity: 0.4; cursor: not-allowed; }
-
   .btn-apply { width: 100%; margin-top: 12px; padding: 10px; background: transparent; color: var(--amber); font-family: var(--font-body); font-size: 13px; font-weight: 500; border: 1px solid var(--amber-border); border-radius: var(--radius); cursor: pointer; transition: background 0.15s; }
   .btn-apply:hover { background: var(--amber-bg); }
-
-  /* OPTIMIZER RESULT PANEL */
-  .optim-result-panel { display: none; background: var(--surface); border: 1px solid var(--purple-border); border-radius: var(--radius-lg); overflow: hidden; margin-top: 16px; }
-  .optim-result-panel.active { display: block; }
-  .optim-result-header { padding: 14px 18px; border-bottom: 1px solid var(--purple-border); background: var(--purple-bg); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
-  .optim-result-title { font-family: var(--font-display); font-size: 14px; font-weight: 600; color: var(--purple); }
-  .optim-score-badge { font-family: var(--font-mono); font-size: 12px; color: var(--purple); background: var(--purple-bg); border: 1px solid var(--purple-border); padding: 3px 10px; border-radius: 20px; }
-  .optim-result-body { padding: 18px; }
-  .optim-improvement { font-family: var(--font-mono); font-size: 12px; color: var(--muted); margin-bottom: 14px; }
-  .optim-improvement .pos { color: var(--green); }
-  .optim-improvement .neg { color: var(--red); }
-  .optim-table { width: 100%; border-collapse: collapse; font-family: var(--font-mono); font-size: 13px; }
-  .optim-table th { text-align: left; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); padding: 6px 10px; border-bottom: 1px solid var(--border); }
-  .optim-table td { padding: 8px 10px; border-bottom: 1px solid var(--border); color: var(--text); }
-  .optim-table tr:last-child td { border-bottom: none; }
-  .optim-table .changed { color: var(--green); }
-  .optim-table .locked-cell { color: var(--blue); }
-  .optim-table .lock-badge { font-size: 9px; background: var(--blue-bg); color: var(--blue); border: 1px solid var(--blue-border); border-radius: 3px; padding: 1px 5px; margin-left: 6px; }
-
-  /* RIGHT COL */
   .right-col { display: none; flex-direction: column; gap: 16px; margin-top: 16px; }
-
-  /* METRICS */
   .metrics-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
-
   .metric-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 18px 16px; position: relative; overflow: hidden; opacity: 0.35; transition: opacity 0.3s; }
   .metric-card.active { opacity: 1; }
   .metric-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; }
@@ -198,34 +140,25 @@
   .metric-card.score::before { background: var(--purple); }
   .metric-card.cond.good-cond::before { background: var(--green); }
   .metric-card.cond.bad-cond::before  { background: var(--red); }
-
   .metric-label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
   .metric-value { font-family: var(--font-mono); font-size: 32px; font-weight: 500; color: var(--text); line-height: 1; }
   .metric-unit { font-size: 13px; color: var(--muted); margin-left: 4px; }
   .metric-sub { font-size: 11px; color: var(--faint); margin-top: 6px; font-family: var(--font-mono); }
   .metric-sub-dim { font-size: 11px; color: var(--faint); margin-top: 4px; font-family: var(--font-mono); opacity: 0.6; }
-
   .cond-good { color: var(--green); }
   .cond-bad  { color: var(--red); }
-
-  /* SCORE RING */
   .score-ring-wrap { display: flex; align-items: center; gap: 14px; }
   .score-ring { width: 56px; height: 56px; flex-shrink: 0; }
   .score-ring circle { fill: none; stroke-width: 5; }
   .score-ring .track { stroke: var(--surface2); }
   .score-ring .fill  { stroke: var(--purple); stroke-linecap: round; transition: stroke-dashoffset 0.8s ease; transform-origin: center; transform: rotate(-90deg); }
-
-  /* ANALYSIS PANEL */
   .analysis-panel { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; opacity: 0.35; transition: opacity 0.3s; }
   .analysis-panel.active { opacity: 1; }
-
   .analysis-header { padding: 16px 20px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
   .analysis-header-left p:first-child { font-family: var(--font-display); font-size: 15px; font-weight: 600; color: var(--text); }
   .analysis-header-left p:last-child { font-size: 12px; color: var(--muted); margin-top: 1px; }
   .analysis-header-right { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
-
   .analysis-body { padding: 20px; }
-
   .analysis-section { padding-left: 14px; margin-bottom: 22px; }
   .analysis-section:last-child { margin-bottom: 0; }
   .analysis-section.optim  { border-left: 2px solid var(--amber); }
@@ -233,35 +166,27 @@
   .analysis-section.resist { border-left: 2px solid var(--teal); }
   .analysis-section.grade  { border-left: 2px solid var(--purple); }
   .analysis-section.apps   { border-left: 2px solid var(--green); }
-
   .analysis-section-label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
-
   .analysis-section-text { font-size: 14px; color: var(--text); line-height: 1.8; white-space: pre-line; }
   .analysis-placeholder { font-size: 13px; color: var(--faint); font-style: italic; }
-
-  /* APPLY VALUES BOX */
   .apply-box { background: var(--amber-bg); border: 1px solid var(--amber-border); border-radius: var(--radius); padding: 14px 16px; margin-top: 10px; }
   .apply-box-label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--amber); margin-bottom: 8px; }
   .apply-values-text { font-size: 14px; color: var(--text); line-height: 1.8; white-space: pre-line; font-family: var(--font-mono); }
-  .apply-advice-text { font-size: 14px; color: var(--text); line-height: 1.8; white-space: pre-line; margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--amber-border); }
-
-  /* RESISTANCE CARDS */
+  .apply-advice-text { font-size: 14px; color: var(--text); line-height: 1.8; white-space: pre-line; }
   .resist-cards-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
   @media (max-width: 720px) { .resist-cards-grid { grid-template-columns: repeat(3, 1fr); } }
   .resist-card { background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 10px; text-align: center; transition: border-color 0.2s, transform 0.15s; }
   .resist-card:hover { transform: translateY(-2px); }
-  .resist-card.heat   { border-top: 2px solid #f97316; }
-  .resist-card.elec   { border-top: 2px solid #facc15; }
-  .resist-card.corr   { border-top: 2px solid #38bdf8; }
-  .resist-card.fatigue{ border-top: 2px solid #a78bfa; }
-  .resist-card.wear   { border-top: 2px solid #34d399; }
+  .resist-card.heat    { border-top: 2px solid #f97316; }
+  .resist-card.elec    { border-top: 2px solid #facc15; }
+  .resist-card.corr    { border-top: 2px solid #38bdf8; }
+  .resist-card.fatigue { border-top: 2px solid #a78bfa; }
+  .resist-card.wear    { border-top: 2px solid #34d399; }
   .resist-card-icon   { font-size: 22px; margin-bottom: 6px; }
   .resist-card-label  { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
   .resist-card-rating { font-family: var(--font-display); font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 4px; line-height: 1.2; }
   .resist-card-detail { font-size: 11px; color: var(--faint); line-height: 1.4; }
   .resist-placeholder { font-size: 13px; color: var(--faint); font-style: italic; }
-
-  /* APPLICATION CARDS */
   .app-cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; }
   .app-card { background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 18px 14px; cursor: pointer; transition: border-color 0.2s, transform 0.15s, background 0.15s; text-align: center; }
   .app-card:hover { border-color: var(--green-border); background: var(--green-bg); transform: translateY(-3px); }
@@ -269,8 +194,6 @@
   .app-card-name  { font-family: var(--font-display); font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 6px; line-height: 1.2; }
   .app-card-short { font-size: 11px; color: var(--muted); line-height: 1.4; }
   .app-placeholder { font-size: 13px; color: var(--faint); font-style: italic; }
-
-  /* APP MODAL */
   .app-modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.6); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); z-index: 1000; display: flex; align-items: center; justify-content: center; padding: 24px; opacity: 0; pointer-events: none; transition: opacity 0.2s; }
   .app-modal-overlay.open { opacity: 1; pointer-events: all; }
   .app-modal { background: var(--surface); border: 1px solid var(--border2); border-radius: var(--radius-lg); max-width: 480px; width: 100%; padding: 28px; position: relative; transform: translateY(16px); transition: transform 0.25s ease; }
@@ -282,24 +205,17 @@
   .app-modal-tag   { display: inline-block; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; background: var(--green-bg); color: var(--green); border: 1px solid var(--green-border); border-radius: 4px; padding: 2px 8px; margin-bottom: 16px; }
   .app-modal-body  { font-size: 14px; color: var(--text); line-height: 1.8; }
   .app-modal-divider { height: 1px; background: var(--border); margin: 16px 0; }
-
-  /* LOADING */
   .loading-dots::after { content: ''; animation: dots 1.2s steps(4, end) infinite; }
   @keyframes dots { 0%{content:''} 25%{content:'.'} 50%{content:'..'} 75%{content:'...'} 100%{content:''} }
   .spinner { display: inline-block; width: 14px; height: 14px; border: 2px solid var(--faint); border-top-color: var(--amber); border-radius: 50%; animation: spin 0.7s linear infinite; vertical-align: middle; margin-right: 8px; }
-  .spinner.purple { border-top-color: var(--purple); }
   @keyframes spin { to { transform: rotate(360deg); } }
-
   @keyframes fadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
   .fade-in { animation: fadeUp 0.35s ease forwards; }
-
   .status-tag { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 8px; border-radius: 4px; }
   .status-tag.online  { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-border); }
   .status-tag.offline { background: var(--red-bg); color: var(--red); border: 1px solid var(--red-border); }
   .status-tag::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
-
   footer { margin-top: 60px; padding-top: 24px; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; font-family: var(--font-mono); font-size: 11px; color: var(--faint); }
-
   @media (max-width: 720px) {
     .metrics-grid { grid-template-columns: 1fr 1fr; }
     header { flex-direction: column; gap: 12px; align-items: flex-start; }
@@ -309,7 +225,6 @@
 </head>
 <body>
 <div class="shell">
-
   <header>
     <div class="brand">
       <div style="display:flex;align-items:center;gap:14px;">
@@ -341,8 +256,6 @@
 
   <div class="main-grid">
     <div>
-
-      <!-- INPUTS PANEL -->
       <div class="panel">
         <div class="panel-header">
           <span class="panel-title">Process Parameters</span>
@@ -374,42 +287,10 @@
             <div class="warn-banner-body" id="warn-banner-text"></div>
           </div>
           <button class="btn-primary" id="btn-pred" onclick="runPrediction()">Run Prediction</button>
-          <button class="btn-optimize" id="btn-optimize" onclick="runOptimize()" disabled>⚡ Optimize Parameters</button>
-          <div id="optim-loading" style="display:none;padding:10px 0 4px;">
-            <span class="spinner purple"></span>
-            <span style="font-size:13px;color:var(--purple);">Running scipy optimizer against XGBoost</span><span class="loading-dots" style="color:var(--purple);"></span>
-          </div>
         </div>
       </div>
 
-      <!-- OPTIMIZER RESULT PANEL -->
-      <div class="optim-result-panel" id="optim-result-panel">
-        <div class="optim-result-header">
-          <span class="optim-result-title">⚡ Optimizer Result</span>
-          <span class="optim-score-badge" id="optim-score-badge">Score: —</span>
-        </div>
-        <div class="optim-result-body">
-          <div class="optim-improvement" id="optim-improvement"></div>
-          <table class="optim-table">
-            <thead>
-              <tr>
-                <th>Parameter</th>
-                <th>Your Value</th>
-                <th>Optimized</th>
-                <th>Status</th>
-              </tr>
-            </thead>
-            <tbody id="optim-table-body"></tbody>
-          </table>
-          <div style="margin-top:14px;padding:12px 14px;background:var(--surface2);border-radius:var(--radius);font-family:var(--font-mono);font-size:12px;color:var(--muted);" id="optim-pred-summary"></div>
-          <button class="btn-apply" id="btn-apply-optim" onclick="applyOptimResult()" style="margin-top:12px;">↑ Apply optimized values to inputs</button>
-        </div>
-      </div>
-
-      <!-- RIGHT COL (outputs) -->
       <div class="right-col" id="right-col">
-
-        <!-- Metric cards -->
         <div class="metrics-grid">
           <div class="metric-card ys" id="card-ys">
             <div class="metric-label">Yield Strength</div>
@@ -433,15 +314,12 @@
           </div>
         </div>
 
-        <!-- Weld Quality Score card (full width) -->
         <div class="metric-card score" id="card-score" style="grid-column:1/-1;">
           <div class="metric-label">Weld Quality Score</div>
           <div class="score-ring-wrap">
             <svg class="score-ring" viewBox="0 0 56 56">
               <circle class="track" cx="28" cy="28" r="23"/>
-              <circle class="fill" id="score-ring-fill" cx="28" cy="28" r="23"
-                stroke-dasharray="144.51"
-                stroke-dashoffset="144.51"/>
+              <circle class="fill" id="score-ring-fill" cx="28" cy="28" r="23" stroke-dasharray="144.51" stroke-dashoffset="144.51"/>
             </svg>
             <div>
               <div><span class="metric-value" style="font-size:38px;" id="r-score">—</span><span class="metric-unit" style="font-size:16px;">/100</span></div>
@@ -450,7 +328,6 @@
           </div>
         </div>
 
-        <!-- AI Analysis panel -->
         <div class="analysis-panel" id="analysis-panel">
           <div class="analysis-header">
             <div class="analysis-header-left">
@@ -463,55 +340,41 @@
             </div>
           </div>
           <div class="analysis-body">
-
             <div id="analysis-loading" style="display:none;padding:8px 0 4px;">
               <span class="spinner"></span>
               <span style="font-size:13px;color:var(--muted);" id="analysis-loading-msg">Calling Groq API</span><span class="loading-dots" style="color:var(--muted);"></span>
             </div>
-
             <div id="analysis-content">
-
-              <!-- Optimizer explanation (replaces old Groq guessing box) -->
               <div class="analysis-section optim" id="section-optim">
                 <div class="analysis-section-label">Optimization Notes</div>
                 <div id="optim-box-wrap">
-                  <div class="analysis-section-text analysis-placeholder" id="an-optim">Run ⚡ Optimize above for mathematically computed parameter suggestions, then click "Get analysis" for AI explanation.</div>
+                  <div class="analysis-section-text analysis-placeholder" id="an-optim">Suggested parameter adjustments will appear here after analysis.</div>
                 </div>
               </div>
-
-              <!-- Property Analysis -->
               <div class="analysis-section props">
                 <div class="analysis-section-label">Property Analysis</div>
                 <div class="analysis-section-text analysis-placeholder" id="an-props">Strength, ductility and what the numbers mean in practice will appear here.</div>
               </div>
-
-              <!-- Material Resistance Cards -->
               <div class="analysis-section resist">
                 <div class="analysis-section-label">Material Resistance</div>
                 <div id="resist-cards-container">
                   <p class="resist-placeholder" id="an-resist">Heat, electrical, corrosion, fatigue and wear resistance will appear here.</p>
                 </div>
               </div>
-
-              <!-- Material Grade -->
               <div class="analysis-section grade">
                 <div class="analysis-section-label">Material Grade Classification</div>
                 <div class="analysis-section-text analysis-placeholder" id="an-grade">Likely material grade based on predicted mechanical properties will appear here.</div>
               </div>
-
-              <!-- Application Recommendations Cards -->
               <div class="analysis-section apps">
                 <div class="analysis-section-label">Application Recommendations</div>
                 <div id="app-cards-container">
                   <p class="app-placeholder" id="an-apps">Industry fit and suitable use cases will appear here.</p>
                 </div>
               </div>
-
             </div>
           </div>
         </div>
-
-      </div><!-- end right-col -->
+      </div>
     </div>
   </div>
 
@@ -520,7 +383,6 @@
     <span id="footer-hi" style="color:var(--amber);"></span>
   </footer>
 
-  <!-- APPLICATION MODAL -->
   <div class="app-modal-overlay" id="app-modal-overlay" onclick="closeAppModal(event)">
     <div class="app-modal">
       <button class="app-modal-close" onclick="closeAppModal(null)" title="Close">✕</button>
@@ -532,12 +394,10 @@
     </div>
   </div>
 
-</div><!-- end shell -->
-
+</div>
 <script>
 const API = 'https://weldwise.onrender.com';
 
-// ── CORRECTED ranges matching updated dataset ──────────────
 const RANGES = {
   'Mild Steel':      {current:[80,200],   voltage:[10,16], welding_speed:[100,350], gas_flow:[8,15],   wire_feed:[500,1800],  preheat_temp:[20,150], interpass_temp:[20,250]},
   'Stainless Steel': {current:[60,144],   voltage:[10,14], welding_speed:[80,300],  gas_flow:[8,15],   wire_feed:[400,1500],  preheat_temp:[20,100], interpass_temp:[20,150]},
@@ -555,12 +415,10 @@ const PARAMS = [
   {id:'interpass_temp', label:'Interpass Temp', unit:'°C',     step:5},
 ];
 
-let lastPrediction   = null;
-let lastInputs       = null;
-let lastAnalysis     = null;
-let lastOptimResult  = null;
+let lastPrediction = null;
+let lastInputs     = null;
+let lastAnalysis   = null;
 
-// ── RENDER PARAM INPUTS with lock toggles
 function renderParams() {
   const mat = document.getElementById('sel-material').value;
   const r = RANGES[mat];
@@ -601,25 +459,8 @@ function onLockChange(paramId) {
   const locked = document.getElementById('lock-' + paramId).checked;
   const wrap   = document.getElementById('wrap-' + paramId);
   const inp    = document.getElementById('inp-' + paramId);
-  if (locked) {
-    wrap.classList.add('locked');
-    inp.disabled = true;
-  } else {
-    wrap.classList.remove('locked');
-    inp.disabled = false;
-  }
-}
-
-function getLocked() {
-  // Returns {param_id: value} for all locked params
-  const locked = {};
-  PARAMS.forEach(p => {
-    const cb = document.getElementById('lock-' + p.id);
-    if (cb && cb.checked) {
-      locked[p.id] = parseFloat(document.getElementById('inp-' + p.id)?.value) || 0;
-    }
-  });
-  return locked;
+  if (locked) { wrap.classList.add('locked'); inp.disabled = true; }
+  else        { wrap.classList.remove('locked'); inp.disabled = false; }
 }
 
 function onMatChange() {
@@ -676,7 +517,7 @@ function onChange() {
 }
 
 function getInputs() {
-  const mat  = document.getElementById('sel-material').value;
+  const mat = document.getElementById('sel-material').value;
   const vals = { material: mat };
   PARAMS.forEach(p => { vals[p.id] = parseFloat(document.getElementById('inp-' + p.id)?.value) || 0; });
   return vals;
@@ -692,7 +533,6 @@ function getWarnings(inputs) {
   return warns;
 }
 
-// ── PREDICTION
 async function runPrediction() {
   const btn = document.getElementById('btn-pred');
   btn.disabled = true; btn.textContent = 'Predicting…';
@@ -704,7 +544,6 @@ async function runPrediction() {
     if (pred.error) throw new Error(pred.error);
     lastPrediction = pred; lastInputs = inputs;
     showResults(pred);
-    document.getElementById('btn-optimize').disabled = false;
   } catch(e) {
     alert('Prediction failed: ' + e.message);
   } finally {
@@ -713,18 +552,17 @@ async function runPrediction() {
 }
 
 function showResults(pred) {
-  document.getElementById('r-ys').textContent    = pred.yield_strength;
-  document.getElementById('r-uts').textContent   = pred.uts;
-  document.getElementById('r-elong').textContent = pred.elongation;
+  document.getElementById('r-ys').textContent     = pred.yield_strength;
+  document.getElementById('r-uts').textContent    = pred.uts;
+  document.getElementById('r-elong').textContent  = pred.elongation;
   const condEl = document.getElementById('r-cond');
-  condEl.textContent = pred.condition;
-  condEl.className   = 'metric-value ' + (pred.condition === 'Good' ? 'cond-good' : 'cond-bad');
+  condEl.textContent    = pred.condition;
+  condEl.className      = 'metric-value ' + (pred.condition === 'Good' ? 'cond-good' : 'cond-bad');
   condEl.style.fontSize = '26px';
-  document.getElementById('r-conf').textContent     = pred.confidence + '% confidence';
-  document.getElementById('r-ys-sub').textContent   = 'yield point';
-  document.getElementById('r-uts-sub').textContent  = 'ultimate tensile';
-  document.getElementById('r-elong-sub').textContent= 'ductility';
-
+  document.getElementById('r-conf').textContent      = pred.confidence + '% confidence';
+  document.getElementById('r-ys-sub').textContent    = 'yield point';
+  document.getElementById('r-uts-sub').textContent   = 'ultimate tensile';
+  document.getElementById('r-elong-sub').textContent = 'ductility';
   document.getElementById('right-col').style.display = 'flex';
   ['card-ys','card-uts','card-elong','card-cond','card-score'].forEach(id => {
     document.getElementById(id).classList.add('active','fade-in');
@@ -736,97 +574,6 @@ function showResults(pred) {
   document.getElementById('btn-analysis').disabled = false;
   resetAnalysis();
 }
-
-// ── OPTIMIZER
-async function runOptimize() {
-  const btn     = document.getElementById('btn-optimize');
-  const loading = document.getElementById('optim-loading');
-  btn.disabled  = true;
-  btn.textContent = '⚡ Optimizing…';
-  loading.style.display = 'block';
-
-  const inputs        = getInputs();
-  const locked_params = getLocked();
-
-  try {
-    const res = await fetch(API + '/optimize', {
-      method: 'POST', headers: {'Content-Type':'application/json'},
-      body: JSON.stringify({
-        material:       inputs.material,
-        locked_params:  locked_params,
-        current_params: inputs,
-      })
-    });
-    if (!res.ok) throw new Error('HTTP ' + res.status);
-    const result = await res.json();
-    if (result.error) throw new Error(result.error);
-    lastOptimResult = result;
-    showOptimResult(result, inputs);
-  } catch(e) {
-    alert('Optimizer failed: ' + e.message);
-  } finally {
-    btn.disabled    = false;
-    btn.textContent = '⚡ Optimize Parameters';
-    loading.style.display = 'none';
-  }
-}
-
-function showOptimResult(result, originalInputs) {
-  const panel = document.getElementById('optim-result-panel');
-  panel.classList.add('active', 'fade-in');
-
-  document.getElementById('optim-score-badge').textContent = 'Score: ' + result.optimized_score + '/100';
-
-  // Improvement line
-  const impEl = document.getElementById('optim-improvement');
-  if (result.improvement !== null) {
-    const sign  = result.improvement >= 0 ? '+' : '';
-    const cls   = result.improvement >= 0 ? 'pos' : 'neg';
-    impEl.innerHTML = `Original score: ${result.original_score}/100 → Optimized: ${result.optimized_score}/100 &nbsp;<span class="${cls}">(${sign}${result.improvement})</span>`;
-  } else {
-    impEl.textContent = 'Optimized score: ' + result.optimized_score + '/100';
-  }
-
-  // Table
-  const PARAM_LABELS = {
-    current:'Current (A)', voltage:'Voltage (V)', welding_speed:'Welding Speed (mm/min)',
-    gas_flow:'Gas Flow (L/min)', wire_feed:'Wire Feed (mm/min)',
-    preheat_temp:'Preheat Temp (°C)', interpass_temp:'Interpass Temp (°C)',
-  };
-  const tbody = document.getElementById('optim-table-body');
-  tbody.innerHTML = Object.keys(PARAM_LABELS).map(p => {
-    const origVal  = originalInputs[p] || '—';
-    const optVal   = result.optimized_params[p];
-    const isLocked = result.locked_params.includes(p);
-    const changed  = !isLocked && Math.abs(optVal - origVal) > 0.05;
-    const optCell  = isLocked
-      ? `<td class="locked-cell">${optVal}<span class="lock-badge">LOCKED</span></td>`
-      : `<td class="${changed ? 'changed' : ''}">${optVal}</td>`;
-    const status   = isLocked ? `<td style="color:var(--blue);font-size:11px;">locked</td>`
-                              : (changed ? `<td style="color:var(--green);font-size:11px;">↑ changed</td>`
-                                         : `<td style="color:var(--faint);font-size:11px;">—</td>`);
-    return `<tr><td>${PARAM_LABELS[p]}</td><td>${origVal}</td>${optCell}${status}</tr>`;
-  }).join('');
-
-  // Predicted output summary
-  const op = result.optimized_prediction;
-  document.getElementById('optim-pred-summary').innerHTML =
-    `Predicted on optimized params → YS: <span style="color:var(--amber)">${op.yield_strength} MPa</span> · UTS: <span style="color:var(--blue)">${op.uts} MPa</span> · El: <span style="color:var(--green)">${op.elongation}%</span> · Condition: <span style="color:${op.condition==='Good'?'var(--green)':'var(--red)'}">${op.condition}</span> (${op.confidence}% conf) · Heat Input: ${op.heat_input} kJ/mm`;
-}
-
-function applyOptimResult() {
-  if (!lastOptimResult) return;
-  const p = lastOptimResult.optimized_params;
-  Object.keys(p).forEach(id => {
-    const inp = document.getElementById('inp-' + id);
-    // Only apply to unlocked fields
-    const locked = document.getElementById('lock-' + id)?.checked;
-    if (inp && !locked) inp.value = p[id];
-  });
-  onChange();
-}
-
-// ── ANALYSIS
 async function runAnalysis() {
   if (!lastPrediction || !lastInputs) return;
   const btn     = document.getElementById('btn-analysis');
@@ -845,25 +592,19 @@ async function runAnalysis() {
     if (analysis.error) throw new Error(analysis.error);
     lastAnalysis = analysis;
 
-    // Optimization notes — show Groq advice but clarify real values come from optimizer
     const optimWrap = document.getElementById('optim-box-wrap');
-    const optimRaw  = analysis.optimization_values || '';
-    const parts     = optimRaw.split(/\n\n+/);
-    const advicePart = parts.slice(1).join('\n\n').trim() || parts[0];
     optimWrap.innerHTML = `
-      <div class="apply-box" style="border-color:var(--amber-border);">
-        <div class="apply-box-label">AI Explanation</div>
-        <div class="apply-advice-text" style="border:none;padding:0;margin:0;">${escHtml(advicePart)}</div>
+      <div class="apply-box">
+        <div class="apply-box-label">Suggested Adjustments</div>
+        <div class="apply-advice-text" style="border:none;padding:0;margin:0;">${escHtml(analysis.optimization_values || '')}</div>
       </div>
     `;
 
-    document.getElementById('an-props').textContent  = analysis.property_analysis || '';
+    document.getElementById('an-props').textContent = analysis.property_analysis || '';
     document.getElementById('an-props').classList.remove('analysis-placeholder');
 
-    // Render resistance cards
     renderResistCards(analysis.material_resistance || '');
 
-    // Render application cards — Groq now returns an array
     const appsData = analysis.application_recommendations;
     if (Array.isArray(appsData)) {
       renderAppCards(JSON.stringify(appsData));
@@ -871,47 +612,36 @@ async function runAnalysis() {
       renderAppCards(appsData || '');
     }
 
-    document.getElementById('an-grade').textContent  = analysis.material_grade || '';
+    document.getElementById('an-grade').textContent = analysis.material_grade || '';
     document.getElementById('an-grade').classList.remove('analysis-placeholder');
 
     const score = parseInt(analysis.weld_quality_score) || 0;
     document.getElementById('r-score').textContent     = score;
     document.getElementById('r-score-sub').textContent = score >= 80 ? 'excellent quality' : score >= 60 ? 'acceptable quality' : 'needs improvement';
-    const offset    = 144.51 - (144.51 * score / 100);
+    const offset = 144.51 - (144.51 * score / 100);
     document.getElementById('score-ring-fill').style.strokeDashoffset = offset;
-    const ringColor = score >= 80 ? 'var(--green)' : score >= 60 ? 'var(--amber)' : 'var(--red)';
-    document.getElementById('score-ring-fill').style.stroke = ringColor;
+    document.getElementById('score-ring-fill').style.stroke = score >= 80 ? 'var(--green)' : score >= 60 ? 'var(--amber)' : 'var(--red)';
 
     loading.style.display = 'none';
     content.style.display = 'block';
     content.classList.add('fade-in');
-    btn.disabled    = false; btn.textContent = 'Refresh →';
+    btn.disabled = false; btn.textContent = 'Refresh →';
     document.getElementById('btn-export').disabled = false;
 
   } catch(e) {
     document.getElementById('analysis-loading-msg').textContent = 'Error: ' + e.message;
-    btn.disabled    = false; btn.textContent = 'Retry →';
+    btn.disabled = false; btn.textContent = 'Retry →';
     loading.style.display = 'none';
     content.style.display = 'block';
   }
 }
 
-// ── EXPORT PDF
 function exportPDF() {
   if (!lastPrediction || !lastInputs) return;
   const mat   = lastInputs.material;
   const pred  = lastPrediction;
   const an    = lastAnalysis || {};
   const score = document.getElementById('r-score').textContent;
-  const optim = lastOptimResult;
-
-  const optimSection = optim ? `
-    <h2>Optimizer Result (scipy + XGBoost)</h2>
-    <p>Original Score: ${optim.original_score}/100 → Optimized Score: ${optim.optimized_score}/100 (${optim.improvement >= 0 ? '+' : ''}${optim.improvement})</p>
-    <pre>${Object.entries(optim.optimized_params).map(([k,v]) => k + ': ' + v + (optim.locked_params.includes(k) ? ' [LOCKED]' : '')).join('\n')}</pre>
-    <p>Predicted → YS: ${optim.optimized_prediction.yield_strength}MPa | UTS: ${optim.optimized_prediction.uts}MPa | El: ${optim.optimized_prediction.elongation}% | ${optim.optimized_prediction.condition}</p>
-  ` : '';
-
   const html = `<!DOCTYPE html><html><head><meta charset="UTF-8"/>
   <title>WeldWise Report</title>
   <style>
@@ -929,12 +659,10 @@ function exportPDF() {
   </style></head><body>
   <h1>Weld<span style="color:#f97316;">Wise</span> Report</h1>
   <div class="sub">Generated ${new Date().toLocaleString()} · Material: ${mat}</div>
-
   <h2>Inputs</h2>
   <pre>Current: ${lastInputs.current}A | Voltage: ${lastInputs.voltage}V | Speed: ${lastInputs.welding_speed}mm/min
 Gas Flow: ${lastInputs.gas_flow}L/min | Wire Feed: ${lastInputs.wire_feed}mm/min
 Preheat: ${lastInputs.preheat_temp}°C | Interpass: ${lastInputs.interpass_temp}°C | Heat Input: ${pred.heat_input}kJ/mm</pre>
-
   <h2>Predicted Outputs</h2>
   <div class="grid">
     <div class="card"><div class="card-label">Yield Strength</div><div class="card-val">${pred.yield_strength} <span style="font-size:14px;font-weight:400;">MPa</span></div></div>
@@ -945,38 +673,30 @@ Preheat: ${lastInputs.preheat_temp}°C | Interpass: ${lastInputs.interpass_temp}
     <div class="card"><div class="card-label">Condition</div><div class="card-val ${pred.condition==='Good'?'good':'bad'}">${pred.condition}</div><div style="font-size:11px;color:#888;">${pred.confidence}% confidence</div></div>
     <div class="card" style="grid-column:span 2;"><div class="card-label">Weld Quality Score</div><div class="score-big">${score}<span style="font-size:20px;font-weight:400;color:#888;">/100</span></div></div>
   </div>
-
-  ${optimSection}
-  ${an.optimization_values ? `<h2>AI Optimization Notes</h2><pre>${an.optimization_values}</pre>` : ''}
+  ${an.optimization_values ? `<h2>Suggested Adjustments</h2><pre>${an.optimization_values}</pre>` : ''}
   ${an.property_analysis ? `<h2>Property Analysis</h2><pre>${an.property_analysis}</pre>` : ''}
   ${an.material_resistance ? `<h2>Material Resistance</h2><pre>${an.material_resistance}</pre>` : ''}
-  ${an.material_grade ? `<h2>Material Grade Classification</h2><pre>${an.material_grade}</pre>` : ''}
-  ${an.application_recommendations ? `<h2>Application Recommendations</h2><pre>${Array.isArray(an.application_recommendations) ? an.application_recommendations.map(a => `${a.name}: ${a.detail}`).join('\n\n') : an.application_recommendations}</pre>` : ''}
-
+  ${an.material_grade ? `<h2>Material Grade</h2><pre>${an.material_grade}</pre>` : ''}
+  ${an.application_recommendations ? `<h2>Application Recommendations</h2><pre>${Array.isArray(an.application_recommendations) ? an.application_recommendations.map(a => a.name + ': ' + a.detail).join('\n\n') : an.application_recommendations}</pre>` : ''}
   <div style="margin-top:40px;font-size:11px;color:#aaa;border-top:1px solid #eee;padding-top:12px;">WeldWise · XGBoost + Groq API · 4000-row physics-informed synthetic dataset</div>
   </body></html>`;
-
   const blob = new Blob([html], {type:'text/html'});
   const url  = URL.createObjectURL(blob);
   const a    = document.createElement('a');
-  a.href     = url;
-  a.download = `WeldWise_Report_${mat.replace(' ','_')}_${Date.now()}.html`;
-  a.click();
-  URL.revokeObjectURL(url);
+  a.href = url; a.download = `WeldWise_Report_${mat.replace(' ','_')}_${Date.now()}.html`;
+  a.click(); URL.revokeObjectURL(url);
 }
-
-// ── HELPERS
 function escHtml(str) {
   return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 }
 
 function resetResults() {
   ['r-ys','r-uts','r-elong'].forEach(id => document.getElementById(id).textContent = '—');
-  document.getElementById('r-cond').textContent       = '—';
-  document.getElementById('r-cond').className         = 'metric-value';
-  document.getElementById('r-conf').textContent       = 'awaiting prediction';
-  document.getElementById('r-score').textContent      = '—';
-  document.getElementById('r-score-sub').textContent  = 'awaiting analysis';
+  document.getElementById('r-cond').textContent      = '—';
+  document.getElementById('r-cond').className        = 'metric-value';
+  document.getElementById('r-conf').textContent      = 'awaiting prediction';
+  document.getElementById('r-score').textContent     = '—';
+  document.getElementById('r-score-sub').textContent = 'awaiting analysis';
   document.getElementById('score-ring-fill').style.strokeDashoffset = '144.51';
   ['r-ys-sub','r-uts-sub','r-elong-sub'].forEach(id => document.getElementById(id).textContent = 'awaiting prediction');
   ['card-ys','card-uts','card-elong','card-cond','card-score'].forEach(id => {
@@ -986,31 +706,26 @@ function resetResults() {
   document.getElementById('btn-analysis').disabled    = true;
   document.getElementById('btn-analysis').textContent = 'Get analysis →';
   document.getElementById('btn-export').disabled      = true;
-  document.getElementById('btn-optimize').disabled    = true;
   document.getElementById('right-col').style.display  = 'none';
-  document.getElementById('optim-result-panel').classList.remove('active');
   resetAnalysis();
-  lastPrediction = null; lastInputs = null; lastAnalysis = null; lastOptimResult = null;
+  lastPrediction = null; lastInputs = null; lastAnalysis = null;
 }
 
 function resetAnalysis() {
   const placeholders = [
-    ['an-props',  'Strength, ductility and what the numbers mean in practice will appear here.'],
-    ['an-grade',  'Likely material grade based on predicted mechanical properties will appear here.'],
+    ['an-props', 'Strength, ductility and what the numbers mean in practice will appear here.'],
+    ['an-grade', 'Likely material grade based on predicted mechanical properties will appear here.'],
   ];
   placeholders.forEach(([id, txt]) => {
     const el = document.getElementById(id);
     if(el){ el.textContent = txt; el.classList.add('analysis-placeholder'); }
   });
-  // Reset resistance cards
   const resistContainer = document.getElementById('resist-cards-container');
   if(resistContainer) resistContainer.innerHTML = '<p class="resist-placeholder" id="an-resist">Heat, electrical, corrosion, fatigue and wear resistance will appear here.</p>';
-  // Reset app cards
   const appContainer = document.getElementById('app-cards-container');
   if(appContainer) appContainer.innerHTML = '<p class="app-placeholder" id="an-apps">Industry fit and suitable use cases will appear here.</p>';
-
   const optimWrap = document.getElementById('optim-box-wrap');
-  if(optimWrap) optimWrap.innerHTML = '<div class="analysis-section-text analysis-placeholder" id="an-optim">Run ⚡ Optimize above for mathematically computed parameter suggestions, then click "Get analysis" for AI explanation.</div>';
+  if(optimWrap) optimWrap.innerHTML = '<div class="analysis-section-text analysis-placeholder" id="an-optim">Suggested parameter adjustments will appear here after analysis.</div>';
   document.getElementById('analysis-loading').style.display = 'none';
   document.getElementById('analysis-content').style.display = 'block';
 }
@@ -1028,23 +743,17 @@ async function checkBackend() {
   }
 }
 
-// ── RESISTANCE CARDS
-// Expects bullet text like: "• Heat Resistance: very high up to 650°C\n• Electrical..."
 function renderResistCards(rawText) {
   const container = document.getElementById('resist-cards-container');
   if (!container) return;
-
   const RESIST_META = [
-    { key: 'heat',       label: 'Heat',        icon: '🔥', cls: 'heat'    },
-    { key: 'electrical', label: 'Electrical',  icon: '⚡', cls: 'elec'    },
-    { key: 'corrosion',  label: 'Corrosion',   icon: '🌊', cls: 'corr'    },
-    { key: 'fatigue',    label: 'Fatigue',      icon: '🔄', cls: 'fatigue' },
-    { key: 'wear',       label: 'Wear',         icon: '⚙️', cls: 'wear'    },
+    { key: 'heat',       label: 'Heat',       icon: '🔥', cls: 'heat'    },
+    { key: 'electrical', label: 'Electrical', icon: '⚡', cls: 'elec'    },
+    { key: 'corrosion',  label: 'Corrosion',  icon: '🌊', cls: 'corr'    },
+    { key: 'fatigue',    label: 'Fatigue',    icon: '🔄', cls: 'fatigue' },
+    { key: 'wear',       label: 'Wear',       icon: '⚙️', cls: 'wear'    },
   ];
-
-  // Parse bullets into lines
   const lines = rawText.split('\n').map(l => l.replace(/^[•\-\*]\s*/, '').trim()).filter(Boolean);
-
   const cards = RESIST_META.map(meta => {
     const match = lines.find(l => l.toLowerCase().includes(meta.key));
     let rating = '—', detail = '';
@@ -1052,35 +761,27 @@ function renderResistCards(rawText) {
       const colonIdx = match.indexOf(':');
       if (colonIdx > -1) {
         const rest = match.slice(colonIdx + 1).trim();
-        // First sentence or up to 50 chars as rating, rest as detail
         const sentEnd = rest.search(/[.—,;]/);
         rating = sentEnd > 0 ? rest.slice(0, sentEnd).trim() : rest.slice(0, 50).trim();
         detail = sentEnd > 0 ? rest.slice(sentEnd + 1).trim() : '';
-      } else {
-        rating = match.slice(0, 50);
-      }
+      } else { rating = match.slice(0, 50); }
     }
-    return `
-      <div class="resist-card ${meta.cls}">
-        <div class="resist-card-icon">${meta.icon}</div>
-        <div class="resist-card-label">${meta.label}</div>
-        <div class="resist-card-rating">${rating}</div>
-        ${detail ? `<div class="resist-card-detail">${detail}</div>` : ''}
-      </div>`;
+    return `<div class="resist-card ${meta.cls}">
+      <div class="resist-card-icon">${meta.icon}</div>
+      <div class="resist-card-label">${meta.label}</div>
+      <div class="resist-card-rating">${rating}</div>
+      ${detail ? `<div class="resist-card-detail">${detail}</div>` : ''}
+    </div>`;
   });
-
   container.innerHTML = `<div class="resist-cards-grid">${cards.join('')}</div>`;
 }
 
-// ── APPLICATION CARDS + MODAL
-// Expects either JSON array from Groq, or falls back to parsing bullet text
 const APP_ICON_MAP = {
-  aerospace: '✈️', automotive: '🚗', construction: '🏗️', marine: '⚓',
-  petrochemical: '🛢️', chemical: '🧪', nuclear: '☢️', power: '⚡',
-  medical: '🏥', defence: '🛡️', military: '🛡️', electronics: '💡',
-  manufacturing: '🏭', 'oil': '🛢️', railway: '🚆', rail: '🚆',
-  bicycle: '🚲', bicycle: '🚲', food: '🍽️', pressure: '🔩',
-  sports: '🏅', architecture: '🏛️', default: '🔧'
+  aerospace:'✈️', automotive:'🚗', construction:'🏗️', marine:'⚓',
+  petrochemical:'🛢️', chemical:'🧪', nuclear:'☢️', power:'⚡',
+  medical:'🏥', defence:'🛡️', military:'🛡️', electronics:'💡',
+  manufacturing:'🏭', oil:'🛢️', railway:'🚆', rail:'🚆',
+  food:'🍽️', pressure:'🔩', sports:'🏅', architecture:'🏛️', default:'🔧'
 };
 
 function getAppIcon(name) {
@@ -1096,44 +797,33 @@ let appModalData = [];
 function renderAppCards(rawText) {
   const container = document.getElementById('app-cards-container');
   if (!container) return;
-
-  // Try to parse as JSON array first (if app.py sends structured data)
   let apps = [];
-  try {
-    apps = JSON.parse(rawText);
-  } catch {
-    // Fall back: parse bullet lines
+  try { apps = JSON.parse(rawText); }
+  catch {
     const lines = rawText.split('\n').map(l => l.replace(/^[•\-\*]\s*/, '').trim()).filter(Boolean);
     apps = lines.map(line => {
       const colonIdx = line.indexOf(':');
-      if (colonIdx > -1) {
-        return { name: line.slice(0, colonIdx).trim(), detail: line.slice(colonIdx + 1).trim() };
-      }
+      if (colonIdx > -1) return { name: line.slice(0, colonIdx).trim(), detail: line.slice(colonIdx + 1).trim() };
       return { name: line, detail: '' };
     });
   }
-
   appModalData = apps;
-
   const cards = apps.map((app, i) => {
-    const icon   = app.icon || getAppIcon(app.name);
-    const short  = app.short || (app.detail ? app.detail.slice(0, 60) + (app.detail.length > 60 ? '…' : '') : '');
-    return `
-      <div class="app-card" onclick="openAppModal(${i})">
-        <div class="app-card-icon">${icon}</div>
-        <div class="app-card-name">${app.name}</div>
-        ${short ? `<div class="app-card-short">${short}</div>` : ''}
-      </div>`;
+    const icon  = app.icon || getAppIcon(app.name);
+    const short = app.short || (app.detail ? app.detail.slice(0, 60) + (app.detail.length > 60 ? '…' : '') : '');
+    return `<div class="app-card" onclick="openAppModal(${i})">
+      <div class="app-card-icon">${icon}</div>
+      <div class="app-card-name">${app.name}</div>
+      ${short ? `<div class="app-card-short">${short}</div>` : ''}
+    </div>`;
   });
-
   container.innerHTML = `<div class="app-cards-grid">${cards.join('')}</div>`;
 }
 
 function openAppModal(index) {
   const app = appModalData[index];
   if (!app) return;
-  const icon = app.icon || getAppIcon(app.name);
-  document.getElementById('modal-icon').textContent  = icon;
+  document.getElementById('modal-icon').textContent  = app.icon || getAppIcon(app.name);
   document.getElementById('modal-title').textContent = app.name;
   document.getElementById('modal-body').textContent  = app.detail || app.short || '';
   document.getElementById('app-modal-overlay').classList.add('open');
@@ -1146,7 +836,6 @@ function closeAppModal(event) {
   document.body.style.overflow = '';
 }
 
-// Close modal on Escape key
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeAppModal(null); });
 
 renderParams();
