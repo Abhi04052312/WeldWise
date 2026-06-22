@@ -1,6 +1,4 @@
 """
-WeldWise Flask Backend — Render-ready
---------------------------------------
 pip install -r requirements.txt
 Set env var: GROQ_API_KEY
 
@@ -36,7 +34,7 @@ condition_encoder = load_pkl('condition_encoder.pkl')
 feature_cols      = load_pkl('feature_cols.pkl')
 print("Models loaded. Columns:", feature_cols)
 
-# ── CORRECTED ranges matching the updated dataset ──────────
+# Ranges matching the dataset
 MATERIAL_RANGES = {
     'Mild Steel':      dict(current=(80,200),   voltage=(10,16),  welding_speed=(100,350), gas_flow=(8,15),   wire_feed=(500,1800),  preheat_temp=(20,150), interpass_temp=(20,250)),
     'Stainless Steel': dict(current=(60,144),   voltage=(10,14),  welding_speed=(80,300),  gas_flow=(8,15),   wire_feed=(400,1500),  preheat_temp=(20,100), interpass_temp=(20,150)),
@@ -44,9 +42,7 @@ MATERIAL_RANGES = {
     'Titanium':        dict(current=(50,120),   voltage=(10,15),  welding_speed=(80,250),  gas_flow=(12,25),  wire_feed=(400,1200),  preheat_temp=(20,150), interpass_temp=(20,150)),
 }
 
-# Ordered param list — must stay in sync with MATERIAL_RANGES keys
 PARAM_ORDER = ['current', 'voltage', 'welding_speed', 'gas_flow', 'wire_feed', 'preheat_temp', 'interpass_temp']
-
 
 def build_feature_vector(material, params):
     """Build the numpy feature vector from a params dict."""
